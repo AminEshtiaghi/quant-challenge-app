@@ -1,32 +1,66 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view />
-  </div>
+  <v-app>
+    <v-app-bar app color="primary" light>
+      <div class="d-flex align-center">
+        <v-img
+          alt="App Logo"
+          class="shrink mr-2"
+          contain
+          src="@/assets/images/search.png"
+          transition="scale-transition"
+          width="40"
+        />
+
+        <span class="title white--text">
+          Amazing Crypto Searcher
+        </span>
+      </div>
+
+      <v-spacer></v-spacer>
+
+      <v-btn
+        :loading="isLoading"
+        class="ml-5"
+        v-if="isLoggedIn"
+        @click="signout"
+        >
+        Sign out
+      </v-btn>
+    </v-app-bar>
+
+    <v-main>
+      <router-view />
+    </v-main>
+  </v-app>
 </template>
 
-<style lang="less">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script lang="ts">
+import Vue from "vue";
 
-#nav {
-  padding: 30px;
+export default Vue.extend({
+  name: "App",
+  data: () => ({
+    isLoading: false,
+  }),
+  computed: {
+    isLoggedIn(): boolean {
+      return this.$store.getters['auth/isLoggedIn'];
+    }
+  },
+  methods: {
+    async signout() {
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
+      this.isLoading = true;
 
-    &.router-link-exact-active {
-      color: #42b983;
+      const result = await this.$store.dispatch('auth/signout');
+
+      if (result) {
+        this.$router.push('login');
+      }
+
+      this.isLoading = false;
+      
     }
   }
-}
-</style>
+});
+</script>
