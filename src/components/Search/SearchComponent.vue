@@ -48,7 +48,7 @@
             >Search</v-btn>
 
           <h3 v-if="hasAnyDetails" class="title font-weight-light my-6">
-            Market Details of {{this.details.symbol}}
+            Market Details of {{getSymbol}}
           </h3>
 
           <v-card
@@ -121,6 +121,14 @@ export default Vue.extend({
     },
     hasAnyDetails(): boolean {
       return this.details !== null;
+    },
+    getSymbol(): string
+    {
+      if (this.details !== null && this.details.symbol) {
+        return this.details.symbol;
+      }
+      
+      return '';
     },
     getName(): string
     {
