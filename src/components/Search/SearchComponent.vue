@@ -59,15 +59,15 @@
             shaped
           >
             <v-card-title>
-              {{details.name}}
+              {{getName}}
             </v-card-title>
             <v-card-subtitle>
-              Price: {{details.price}} USD
+              Price: {{getPrice}} USD
             </v-card-subtitle>
             <v-card-text>
-              <b>Market CAP:</b> {{details.market_cap}}
+              <b>Market CAP:</b> {{getMarketCAP}}
               <br>
-              <b>Market CAP Dominance:</b> {{details.market_cap_dominance}}
+              <b>Market CAP Dominance:</b> {{getMarketCapDominance}}
             </v-card-text>
           </v-card>
 
@@ -121,7 +121,39 @@ export default Vue.extend({
     },
     hasAnyDetails(): boolean {
       return this.details !== null;
-    }
+    },
+    getName(): string
+    {
+      if (this.details !== null && this.details.name) {
+        return this.details.name;
+      }
+      
+      return '';
+    },
+    getPrice(): string
+    {
+      if (this.details !== null && this.details.price) {
+        return this.details.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+      }
+      
+      return '';
+    },
+    getMarketCAP(): string
+    {
+      if (this.details !== null && this.details.market_cap) {
+        return this.details.market_cap.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+      }
+      
+      return '';
+    },
+    getMarketCapDominance(): number
+    {
+      if (this.details !== null && this.details.market_cap_dominance) {
+        return this.details.market_cap_dominance;
+      }
+      
+      return 0;
+    },
   },
   methods: {
     async loadDetails(): Promise<void> {
