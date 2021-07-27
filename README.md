@@ -1,34 +1,9 @@
-# quant-challenge-app2
+## QUANT code challenge
 
-## Project setup
-```
-npm install
-```
+**Please Note** all the require description are prepared for you on the [back-end code repository](https://github.com/AminEshtiaghi/quant-challenge-api), please check it out.
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+[API - Back-end code repository](https://github.com/AminEshtiaghi/quant-challenge-api)
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Run your unit tests
-```
-npm run test:unit
-```
-
-### Run your end-to-end tests
-```
-npm run test:e2e
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+Bests,
+<br/>
+Amin
