@@ -1,17 +1,14 @@
 <template>
   <v-container class="mt-6" fluid>
-    <v-row align="center" justify="center"  dense>
+    <v-row align="center" justify="center" dense>
       <v-col cols="12" sm="8" md="4" lg="4">
-
         <v-card class="px-3 py-3">
-
           <h3 class="title font-weight-light my-3">
             Search from Nomics website
           </h3>
-
           <section align="center" justify="center" class="my-4"
-              v-if="!hasAnyCurrencies"
-            >
+            v-if="!hasAnyCurrencies"
+          >
             <v-progress-circular
             indeterminate
             color="primary"
@@ -70,12 +67,9 @@
               <b>Market CAP Dominance:</b> {{getMarketCapDominance}}
             </v-card-text>
           </v-card>
-
         </v-card>
-        
       </v-col>
     </v-row>
-
   </v-container>
 </template>
 
