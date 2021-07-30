@@ -32,13 +32,14 @@
             </ul>
             </v-alert>
             
-            <v-text-field label="Email" name="email" v-model="email"
+            <v-text-field label="Email" id="email" name="email" v-model="email"
               prepend-inner-icon="mdi-at" type="email"
               class="rounded-0" outlined/>
-            <v-text-field label="Password" name="password" v-model="password"
+            <v-text-field label="Password" id="password" name="password" v-model="password"
               prepend-inner-icon="mdi-lock-outline" type="password"
               class="rounded-0" outlined/>
             <v-btn
+              id="btn_login"
               block
               color="primary"
               elevation="1"

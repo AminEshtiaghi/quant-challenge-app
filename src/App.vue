@@ -19,6 +19,7 @@
       <v-spacer></v-spacer>
 
       <v-btn
+        id="btn_sign_out"
         :loading="isLoading"
         class="ml-5"
         v-if="isLoggedIn"

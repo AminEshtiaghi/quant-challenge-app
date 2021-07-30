@@ -19,6 +19,7 @@
             </span>
           </section>
           <v-select
+            id="currencies"
             v-model="selectedCurrency"
             v-if="hasAnyCurrencies"
             :hint="currencyHint"
@@ -34,6 +35,7 @@
             outlined
           ></v-select>
           <v-btn
+              id="btn_search"
               block
               color="primary"
               elevation="1"
