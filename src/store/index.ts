@@ -3,6 +3,7 @@ import Vuex from "vuex";
 import { auth } from "./auth";
 import { currencies } from "./currencies";
 import { details } from "./details";
+import { volumes } from "./volumes";
 
 Vue.use(Vuex);
 
@@ -13,6 +14,7 @@ export default new Vuex.Store({
   modules: {
     auth,
     currencies,
-    details
+    details,
+    volumes
   },
 });

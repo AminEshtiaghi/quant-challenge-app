@@ -42,6 +42,16 @@ describe("Automation Test", () => {
       .eq(0)
       .should('be.visible')
       .should('to.contain', 'Bitcoin');
+    cy.get('div.v-date-picker-table button')
+      .eq(0)
+      .click();
+    cy.get('div.v-date-picker-table button')
+      .eq(10)
+      .click();
+    cy.get('button#btn_volume_search').click();
+    cy.wait(5000);
+    cy.get("div#row_volumes")
+      .should('be.visible');
     cy.get("button#btn_sign_out")
       .click();
     cy.wait(5000);
